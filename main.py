@@ -12,15 +12,13 @@ def index():
         replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
         
-        if userMessage == message.get("message").get("type") == "sticker"
+        if userMessage == message.get("message").get("type") 
             messages = [
                 {
-                
                     #"text":userMessage
                     "type": "sticker",
                     "packageId": "11537",
                     "stickerId": "52002742", 
-                    
                 }
             ]
         else
