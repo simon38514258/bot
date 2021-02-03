@@ -10,15 +10,24 @@ def index():
         message = request.get_json().get('events')[0]
         print(message)
         replyToken = message.get('replyToken')
-        userMessage = message.get("message").get("sticker")
-        messages = [
+        userMessage = message.get("message").get("text")
+        
+        if userMessage == message.get("message","sticker").get("text")
+            messages = [
+                {
+                
+                    #"text":userMessage
+                    "type": "sticker",
+                    "packageId": "11537",
+                    "stickerId": "52002742", 
+                    
+                }
+            ]
+        else
+            message = [
             {
-                #"type":"text",
-                #"text":userMessage
-                "type": "sticker",
-                "packageId": "11537",
-                "stickerId": "52002742", 
-                #"text":"你給我閉嘴"
+                "type":"text",
+                "text":"你給我閉嘴"
             }
         ]
 
