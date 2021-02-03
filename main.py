@@ -10,11 +10,12 @@ def index():
         message = request.get_json().get('events')[0]
         print(message)
         replyToken = message.get('replyToken')
-
+        userMessage = message,get("message").get("text")
         messages = [
             {
                 "type":"text",
-                "text":"你給我閉嘴"
+                "text":userMessage
+                #"text":"你給我閉嘴"
             }
         ]
 
