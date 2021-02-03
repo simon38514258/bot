@@ -13,8 +13,8 @@ def index():
         userMessage = message.get("message").get("text")
         messages = [
             {
-                "type":"text",
-                "text":userMessage
+                #"type":"text",
+                #"text":userMessage
                 "type": "sticker",
                 "packageId": "11537",
                 "stickerId": "52002742", 
