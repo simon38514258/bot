@@ -9,18 +9,19 @@ def index():
     if request.method == 'POST':
         message = request.get_json().get('events')[0]
         print(message)
-        reply_token = params['events'][0]['replyToken']
-        #replyToken = message.get('replyToken')
+        replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
         messages = [
             {
                 "type":"text",
-                #"text":userMessage
-                "text":reply_text
+                "text":userMessage
+                "type": "sticker",
+                "packageId": "11537",
+                "stickerId": "52002742", 
                 #"text":"你給我閉嘴"
             }
         ]
-        line.reply_message(reply_token, message)
+
         ReplyMessage(replyToken,messages)
 
         return 'succeed'
