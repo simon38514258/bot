@@ -12,7 +12,7 @@ def index():
         replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
         
-        if userMessage == message.get("message").get("type") 
+        if userMessage == "嗨"#message.get("message").get("type") 
             messages = [
                 {
                     #"text":userMessage
