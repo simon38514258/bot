@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-        if request.method == "POST":
+    if request.method == "POST":
         message = request.get_json().get("events")[0]
         print(message)
         return "succeed"
