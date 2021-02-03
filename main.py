@@ -14,7 +14,7 @@ def index():
         messages = [
             {
                 "type":"text",
-                "text":"Hello, world1"
+                "text":"你給我閉嘴"
             }
         ]
 
