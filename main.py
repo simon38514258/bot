@@ -71,15 +71,15 @@ def index():
                     }
                 ]
             elif userMessage == "嗨"or"在嗎"or"安安":
-            messages = [
-                {
-                    "type": "sticker",
-                    "packageId": "11537",
-                    "stickerId": "52002738", 
-                    "type":"text",
-                    "text":"怎麼了"
-                }
-            ]
+                messages = [
+                    {
+                        "type": "sticker",
+                        "packageId": "11537",
+                        "stickerId": "52002738", 
+                        "type":"text",
+                        "text":"怎麼了"
+                    }
+                ]
             else:
                 messages = [
                     {
