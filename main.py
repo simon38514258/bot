@@ -91,9 +91,8 @@ def index():
                 ]
 #成語接龍
         else:
-            url = 'https://www.moedict.tw/pua/一飛沖天'
+            url = f'https://www.moedict.tw/pua/{userMessage}'
             r = requests.get(url)
-
             result = r.json().get("heteronyms")
             print(result)
             if result != None:
