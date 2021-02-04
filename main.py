@@ -20,6 +20,7 @@ def index():
                 result = "剪刀\n平手"
             elif AI == 2:
                 result = "布\n你贏了"
+            result = "不對我剛剛出石頭\n我贏了"
             else:
                 result = "石頭\n你輸了"
             messages = [{
@@ -32,6 +33,7 @@ def index():
                 result = "石頭\n平手"
             elif AI == 0:
                 result = "剪刀\n你贏了"
+                result = "不對我剛剛出布\n我贏了"
             else:
                 result = "布\n你輸了"
             messages = [{
@@ -44,6 +46,7 @@ def index():
                 result = "布\n平手"
             elif AI == 1:
                 result = "石頭\n你贏了"
+                "不對我剛剛出剪刀\n我贏了"
             else:
                 result = "剪刀\n你輸了"
             messages = [{
@@ -58,6 +61,13 @@ def index():
                         "type": "sticker",
                         "packageId": "11537",
                         "stickerId": "52002742", 
+                    }
+                ]
+            elif userMessage == "幹變拳":
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"你才變拳你全家都變拳"
                     }
                 ]
             else:
