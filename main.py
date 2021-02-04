@@ -12,7 +12,7 @@ def index():
         print(message)
         replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
-        
+        print(userMessage)
         #猜拳
         if userMessage == "剪刀":
             AI = random.randint(0,2)
