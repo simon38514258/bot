@@ -50,7 +50,9 @@ def index():
             ]
         else:
             print(userMessage, 'else的狀態')
-            if userMessage == "...":#message.get("message").get("type"==sticker) 
+            #message.get("message").get("type"==sticker) 
+            if userMessage == "...":
+                print(userMessage, 'else ... 的狀態')
                 messages = [
                     {
                         #"text":userMessage
@@ -60,6 +62,7 @@ def index():
                     }
                 ]
             elif userMessage == "變拳欸"or"幹變拳"or"你明明就出剪刀"or"你明明就出石頭"or"你明明就出布"or"屁拉":
+                print(userMessage, 'else 變拳欸 的狀態')
                 messages = [
                     {
                         "type":"text",
