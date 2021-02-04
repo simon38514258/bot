@@ -64,7 +64,7 @@ def index():
                 messages = [
                     {
                         "type":"text",
-                        "text":"你才變拳你全家都變拳"
+                        "text":"你才變拳你 全家都變拳"
                     }
                 ]
             else:
