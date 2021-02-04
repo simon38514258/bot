@@ -58,6 +58,8 @@ def index():
                         "type": "sticker",
                         "packageId": "11537",
                         "stickerId": "52002738", 
+                    },
+                    {
                         "type":"text",
                         "text":"怎麼了"
                     }
