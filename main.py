@@ -47,30 +47,30 @@ def index():
                     "text":"怎麼了"
                 }
             ]
+    
+        elif userMessage == "...":#message.get("message").get("type"==sticker) 
+            messages = [
+                {
+                    #"text":userMessage
+                    "type": "sticker",
+                    "packageId": "11537",
+                    "stickerId": "52002742", 
+                }
+            ]
+        elif userMessage == "變拳欸"or"幹變拳"or"你明明就出剪刀"or"你明明就出石頭"or"你明明就出布"or"屁拉":
+            messages = [
+                {
+                    "type":"text",
+                    "text":"你才變拳你 全家都變拳"
+                }
+            ]
         else:
-            if userMessage == "...":#message.get("message").get("type"==sticker) 
-                messages = [
-                    {
-                        #"text":userMessage
-                        "type": "sticker",
-                        "packageId": "11537",
-                        "stickerId": "52002742", 
-                    }
-                ]
-            elif userMessage == "變拳欸"or"幹變拳"or"你明明就出剪刀"or"你明明就出石頭"or"你明明就出布"or"屁拉":
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"你才變拳你 全家都變拳"
-                    }
-                ]
-            else:
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"你給我閉嘴"
-                    }
-                ]
+            messages = [
+                {
+                    "type":"text",
+                    "text":"你給我閉嘴"
+                }
+            ]
         
         ReplyMessage(replyToken,messages)
 
