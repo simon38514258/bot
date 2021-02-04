@@ -35,6 +35,25 @@ def index():
                 "type":"text",
                 "text":result
             }]
+        elif userMessage == "嗨"or"在嗎"or"安安":
+            messages = [
+                {
+                    "type": "sticker",
+                    "packageId": "11537",
+                    "stickerId": "52002738", 
+                },
+                {
+                    "type":"text",
+                    "text":"怎麼了"
+                }
+            ]
+            else:
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"你給我閉嘴"
+                    }
+                ]
         else:
             if userMessage == "...":#message.get("message").get("type"==sticker) 
                 messages = [
@@ -52,26 +71,7 @@ def index():
                         "text":"你才變拳你 全家都變拳"
                     }
                 ]
-            elif userMessage == "嗨"or"在嗎"or"安安":
-                messages = [
-                    {
-                        "type": "sticker",
-                        "packageId": "11537",
-                        "stickerId": "52002738", 
-                    },
-                    {
-                        "type":"text",
-                        "text":"怎麼了"
-                    }
-                ]
-            else:
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"你給我閉嘴"
-                    }
-                ]
-
+            
         ReplyMessage(replyToken,messages)
 
         return 'succeed'
