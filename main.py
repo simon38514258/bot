@@ -12,7 +12,7 @@ def index():
         replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
         
-        if userMessage == "嗨":#message.get("message").get("type") 
+        #if userMessage == "嗨":#message.get("message").get("type") 
             messages = [
                 {
                     #"text":userMessage
@@ -21,13 +21,13 @@ def index():
                     "stickerId": "52002742", 
                 }
             ]
-        else:
-            message = [
-            {
-                "type":"text",
-                "text":"你給我閉嘴"
-            }
-        ]
+        # else:
+        #     message = [
+        #     {
+        #         "type":"text",
+        #         "text":"你給我閉嘴"
+        #     }
+        # ]
 
         ReplyMessage(replyToken,messages)
 
