@@ -65,12 +65,12 @@ def index():
                     }
                 ]
             else:
-            messages = [
-                {
-                    "type":"text",
-                    "text":"你給我閉嘴"
-                }
-            ]
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"你給我閉嘴"
+                    }
+                ]
         
         ReplyMessage(replyToken,messages)
 
