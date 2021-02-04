@@ -60,13 +60,23 @@ def index():
                         "stickerId": "52002742", 
                     }
                 ]
-            elif userMessage == "幹變拳":
+            elif userMessage == "變拳欸"or"幹變拳"or"你明明就出剪刀"or"你明明就出石頭"or"你明明就出布"or"屁拉":
                 messages = [
                     {
                         "type":"text",
                         "text":"你才變拳你 全家都變拳"
                     }
                 ]
+            elif userMessage == "嗨"or"在嗎"or"安安":
+            messages = [
+                {
+                    "type": "sticker",
+                    "packageId": "11537",
+                    "stickerId": "52002738", 
+                    "type":"text",
+                    "text":"怎麼了?"
+                }
+            ]
             else:
                 messages = [
                     {
