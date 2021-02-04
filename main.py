@@ -61,7 +61,7 @@ def index():
                         "stickerId": "52002742", 
                     }
                 ]
-            elif userMessage == "變拳欸"or"幹變拳"or"你明明就出剪刀"or"你明明就出石頭"or"你明明就出布"or"屁拉":
+            elif userMessage == "變拳欸" or userMessage == "幹變拳" or userMessage == "你明明就出剪刀" or userMessage == "你明明就出石頭" or userMessage == "你明明就出布" or userMessage == "屁拉":
                 print(userMessage, 'else 變拳欸 的狀態')
                 messages = [
                     {
