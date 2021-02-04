@@ -36,7 +36,7 @@ def index():
                 "text":result
             }]
         elif userMessage == "嗨" or "在嗎" or "安安":
-            print(userMessage, 'else的狀態')
+            print(userMessage, 'elif的狀態')
             messages = [
                 {
                     "type": "sticker",
