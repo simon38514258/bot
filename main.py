@@ -47,13 +47,6 @@ def index():
                     "text":"怎麼了"
                 }
             ]
-            else:
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"你給我閉嘴"
-                    }
-                ]
         else:
             if userMessage == "...":#message.get("message").get("type"==sticker) 
                 messages = [
@@ -71,7 +64,14 @@ def index():
                         "text":"你才變拳你 全家都變拳"
                     }
                 ]
-            
+            else:
+            messages = [
+                {
+                    "type":"text",
+                    "text":"你給我閉嘴"
+                }
+            ]
+        
         ReplyMessage(replyToken,messages)
 
         return 'succeed'
