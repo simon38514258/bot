@@ -47,23 +47,23 @@ def index():
             else:
                 print("剪刀")
                 result = "你輸了"
-        # else:
-        #     if userMessage == "嗨":#message.get("message").get("type") 
-        #         messages = [
-        #             {
-        #                 #"text":userMessage
-        #                 "type": "sticker",
-        #                 "packageId": "11537",
-        #                 "stickerId": "52002742", 
-        #             }
-        #         ]
-        #     else:
-        #         messages = [
-        #             {
-        #                 "type":"text",
-        #                 "text":"你給我閉嘴"
-        #             }
-        #         ]
+        else:
+            if userMessage == "嗨":#message.get("message").get("type") 
+                messages = [
+                    {
+                        #"text":userMessage
+                        "type": "sticker",
+                        "packageId": "11537",
+                        "stickerId": "52002742", 
+                    }
+                ]
+            else:
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"你給我閉嘴"
+                    }
+                ]
 
         ReplyMessage(replyToken,messages)
 
