@@ -35,7 +35,7 @@ def index():
                 "type":"text",
                 "text":result
             }]
-        elif userMessage == "嗨" or userMessage == "在嗎" or userMessage == "安安":
+        elif userMessage == "嗨" or userMessage == "在嗎" or userMessage == "安安" or userMessage == "在嗎?":
             print(userMessage, 'elif的狀態')
             messages = [
                 {
@@ -51,7 +51,7 @@ def index():
         else:
             print(userMessage, 'else的狀態')
             #message.get("message").get("type"==sticker) 
-            if userMessage == "...":
+            if userMessage == "..." or userMessage == "沒事啦":
                 print(userMessage, 'else ... 的狀態')
                 messages = [
                     {
@@ -69,6 +69,20 @@ def index():
                         "text":"你才變拳你 全家都變拳"
                     }
                 ]
+            elif userMessage == "打傳" or userMessage == "打傳啦"
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"叫楊"
+                    }
+                ]
+            elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢"
+            messages = [
+                {
+                    "type":"text",
+                    "text":"叫她閉嘴,然後逼他打"
+                }
+            ]
             else:
                 messages = [
                     {
