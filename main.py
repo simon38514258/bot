@@ -22,6 +22,10 @@ def index():
                 result = "布\n你贏了"
             else:
                 result = "石頭\n你輸了"
+            message = [{
+                "type":"text",
+                "text":result
+            }]
         elif userMessage == "石頭":
             AI = random.randint(0,2)
             if AI == 1:
@@ -30,6 +34,10 @@ def index():
                 result = "剪刀\n你贏了"
             else:
                 result = "布\n你輸了"
+            message = [{
+                "type":"text",
+                "text":result
+            }]
         elif userMessage == "布":
             AI = random.randint(0,2)
             if AI == 2:
@@ -38,6 +46,10 @@ def index():
                 result = "石頭\n你贏了"
             else:
                 result = "剪刀\n你輸了"
+            message = [{
+                "type":"text",
+                "text":result
+            }]
         else:
             if userMessage == "嗨":#message.get("message").get("type") 
                 messages = [
