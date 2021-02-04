@@ -77,12 +77,12 @@ def index():
                     }
                 ]
             elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢":
-            messages = [
-                {
-                    "type":"text",
-                    "text":"叫她閉嘴,然後逼他打"
-                }
-            ]
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"叫她閉嘴,然後逼他打"
+                    }
+                ]
             else:
                 messages = [
                     {
