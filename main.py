@@ -51,7 +51,7 @@ def index():
                 "text":result
             }]
         else:
-            if userMessage == "嗨":#message.get("message").get("type") 
+            if userMessage == "...":#message.get("message").get("type") 
                 messages = [
                     {
                         #"text":userMessage
