@@ -22,7 +22,7 @@ def index():
                 }
             ]
         else:
-            message = [
+            messages = [
                 {
                     "type":"text",
                     "text":"你給我閉嘴"
