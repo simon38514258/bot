@@ -69,14 +69,14 @@ def index():
                         "text":"你才變拳你 全家都變拳"
                     }
                 ]
-            elif userMessage == "打傳" or userMessage == "打傳啦"
+            elif userMessage == "打傳" or userMessage == "打傳啦":
                 messages = [
                     {
                         "type":"text",
                         "text":"叫楊"
                     }
                 ]
-            elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢"
+            elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢":
             messages = [
                 {
                     "type":"text",
