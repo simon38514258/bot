@@ -16,7 +16,7 @@ def index():
         replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
         print(userMessage)
-        #猜拳
+#猜拳
         if userMessage == "剪刀" or userMessage == "石頭" or userMessage == "布" :
             AI = random.choice(["剪刀","石頭","布"])
             if str(AI) == userMessage:
@@ -48,20 +48,19 @@ def index():
                     "text":"怎麼了"
                 }
             ]
-        else:
-            print(userMessage, 'else的狀態')
-            #message.get("message").get("type"==sticker) 
-            if userMessage == "..." or userMessage == "沒事啦":
-                print(userMessage, 'else ... 的狀態')
-                messages = [
-                    {
-                        #"text":userMessage
-                        "type": "sticker",
-                        "packageId": "11537",
-                        "stickerId": "52002742", 
-                    }
-                ]
-            elif userMessage == "變拳欸" or userMessage == "幹變拳" or userMessage == "你明明就出剪刀" or userMessage == "你明明就出石頭" or userMessage == "你明明就出布" or userMessage == "屁拉":
+#print(userMessage, 'else的狀態')
+#message.get("message").get("type"==sticker) 
+        elif userMessage == "..." or userMessage == "沒事啦":
+            print(userMessage, 'else ... 的狀態')
+            messages = [
+                {
+                    #"text":userMessage
+                    "type": "sticker",
+                    "packageId": "11537",
+                    "stickerId": "52002742", 
+                }
+            ]
+            if userMessage == "變拳欸" or userMessage == "幹變拳" or userMessage == "你明明就出剪刀" or userMessage == "你明明就出石頭" or userMessage == "你明明就出布" or userMessage == "屁拉":
                 print(userMessage, 'else 變拳欸 的狀態')
                 messages = [
                     {
@@ -90,6 +89,17 @@ def index():
                         "text":"你給我閉嘴"
                     }
                 ]
+#成語接龍
+        else:
+            url = 'https://www.moedict.tw/pua/一飛沖天'
+            r = requests.get(url)
+
+            result = r.json().get("heteronyms")
+            print(result)
+            if result != None:
+                print(result[0].get("definitions")[0].get("def"))
+            else:
+                print("查無資料")
         
         ReplyMessage(replyToken,messages)
 
