@@ -14,79 +14,90 @@ def index():
         userMessage = message.get("message").get("text")
         print(userMessage)
         #猜拳
-        
+        if userMessage == "剪刀" or userMessage == "石頭" or userMessage == "布" :
+            AI = random.choice(["剪刀","石頭","布"])
+            if str(AI) == userMessage:
+                result = f"{AI}\n平手"
+            elif (AI == "剪刀" and userMessage == "石頭") or (AI == "布"and userMessage == "剪刀") or (AI == "石頭"and userMessage == "布"):
+                result = f"{AI}\n你贏了"
+            else:
+                result= f"{AI}\n你輸了"
+            messages = [{
+                "type":"text",
+                "text":result
+            }]
 
 
-        if userMessage == "剪刀":
-            AI = random.randint(0,2)
-            if AI == 0:
-                result = "剪刀\n平手"
-            elif AI == 2:
-                result = "布\n你贏了\n不對我剛剛出石頭\n我贏了"
-            else:
-                result = "石頭\n你輸了"
-            messages = [{
-                "type":"text",
-                "text":result
-            }]
-        elif userMessage == "石頭":
-            AI = random.randint(0,2)
-            if AI == 1:
-                result = "石頭\n平手"
-            elif AI == 0:
-                result = "剪刀\n你贏了\n不對我剛剛出布\n我贏了"
-            else:
-                result = "布\n你輸了"
-            messages = [{
-                "type":"text",
-                "text":result
-            }]
-        elif userMessage == "布":
-            AI = random.randint(0,2)
-            if AI == 2:
-                result = "布\n平手"
-            elif AI == 1:
-                result = "石頭\n你贏了\n不對我剛剛出剪刀\n我贏了"
-            else:
-                result = "剪刀\n你輸了"
-            messages = [{
-                "type":"text",
-                "text":result
-            }]
-        else:
-            if userMessage == "...":#message.get("message").get("type") 
-                messages = [
-                    {
-                        #"text":userMessage
-                        "type": "sticker",
-                        "packageId": "11537",
-                        "stickerId": "52002742", 
-                    }
-                ]
-            elif userMessage == "變拳欸"or"幹變拳"or"你明明就出剪刀"or"你明明就出石頭"or"你明明就出布"or"屁拉":
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"你才變拳你 全家都變拳"
-                    }
-                ]
-            elif userMessage == "嗨"or"在嗎"or"安安":
-                messages = [
-                    {
-                        "type": "sticker",
-                        "packageId": "11537",
-                        "stickerId": "52002738", 
-                        "type":"text",
-                        "text":"怎麼了"
-                    }
-                ]
-            else:
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"你給我閉嘴"
-                    }
-                ]
+        # if userMessage == "剪刀":
+        #     AI = random.randint(0,2)
+        #     if AI == 0:
+        #         result = "剪刀\n平手"
+        #     elif AI == 2:
+        #         result = "布\n你贏了\n不對我剛剛出石頭\n我贏了"
+        #     else:
+        #         result = "石頭\n你輸了"
+        #     messages = [{
+        #         "type":"text",
+        #         "text":result
+        #     }]
+        # elif userMessage == "石頭":
+        #     AI = random.randint(0,2)
+        #     if AI == 1:
+        #         result = "石頭\n平手"
+        #     elif AI == 0:
+        #         result = "剪刀\n你贏了\n不對我剛剛出布\n我贏了"
+        #     else:
+        #         result = "布\n你輸了"
+        #     messages = [{
+        #         "type":"text",
+        #         "text":result
+        #     }]
+        # elif userMessage == "布":
+        #     AI = random.randint(0,2)
+        #     if AI == 2:
+        #         result = "布\n平手"
+        #     elif AI == 1:
+        #         result = "石頭\n你贏了\n不對我剛剛出剪刀\n我贏了"
+        #     else:
+        #         result = "剪刀\n你輸了"
+        #     messages = [{
+        #         "type":"text",
+        #         "text":result
+        #     }]
+        # else:
+        #     if userMessage == "...":#message.get("message").get("type") 
+        #         messages = [
+        #             {
+        #                 #"text":userMessage
+        #                 "type": "sticker",
+        #                 "packageId": "11537",
+        #                 "stickerId": "52002742", 
+        #             }
+        #         ]
+        #     elif userMessage == "變拳欸"or"幹變拳"or"你明明就出剪刀"or"你明明就出石頭"or"你明明就出布"or"屁拉":
+        #         messages = [
+        #             {
+        #                 "type":"text",
+        #                 "text":"你才變拳你 全家都變拳"
+        #             }
+        #         ]
+        #     elif userMessage == "嗨"or"在嗎"or"安安":
+        #         messages = [
+        #             {
+        #                 "type": "sticker",
+        #                 "packageId": "11537",
+        #                 "stickerId": "52002738", 
+        #                 "type":"text",
+        #                 "text":"怎麼了"
+        #             }
+        #         ]
+        #     else:
+        #         messages = [
+        #             {
+        #                 "type":"text",
+        #                 "text":"你給我閉嘴"
+        #             }
+        #         ]
 
         ReplyMessage(replyToken,messages)
 
