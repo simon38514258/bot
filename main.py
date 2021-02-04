@@ -73,8 +73,12 @@ def index():
                     "type": "sticker",
                     "packageId": "11537",
                     "stickerId": "52002738", 
+                }
+            ]
+            messages = [
+                {
                     "type":"text",
-                    "text":"怎麼了?"
+                    "text":"怎麼了"
                 }
             ]
             else:
