@@ -83,15 +83,15 @@ def index():
                     }
                 ]
 #成語接龍
-            else:
-                url = f'https://www.moedict.tw/pua/{userMessage}'
-                r = requests.get(url)
-                result = r.json().get("heteronyms")
-                print(result)
-                if result != None:
-                    print(result[0].get("definitions")[0].get("def"))
-                else:
-                    print("查無資料")
+            # else:
+            #     url = f'https://www.moedict.tw/pua/{userMessage}'
+            #     r = requests.get(url)
+            #     result = r.json().get("heteronyms")
+            #     # print(result)
+            #     if result != None:
+            #         print(result[0].get("definitions")[0].get("def"))
+            #     else:
+            #         print("查無資料")
         else:
             messages = [
                 {
