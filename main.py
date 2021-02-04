@@ -76,7 +76,7 @@ def index():
                         "text":"叫楊"
                     }
                 ]
-            elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢":
+            elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢" or userMessage == "如果他說不呢":
                 messages = [
                     {
                         "type":"text",
