@@ -22,7 +22,7 @@ def index():
                 result = "布\n你贏了"
             else:
                 result = "石頭\n你輸了"
-            message = [{
+            messages = [{
                 "type":"text",
                 "text":result
             }]
@@ -34,7 +34,7 @@ def index():
                 result = "剪刀\n你贏了"
             else:
                 result = "布\n你輸了"
-            message = [{
+            messages = [{
                 "type":"text",
                 "text":result
             }]
@@ -46,7 +46,7 @@ def index():
                 result = "石頭\n你贏了"
             else:
                 result = "剪刀\n你輸了"
-            message = [{
+            messages = [{
                 "type":"text",
                 "text":result
             }]
