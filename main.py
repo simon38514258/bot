@@ -17,42 +17,42 @@ def index():
         
 
 
-        # if userMessage == "剪刀":
-        #     AI = random.randint(0,2)
-        #     if AI == 0:
-        #         result = "剪刀\n平手"
-        #     elif AI == 2:
-        #         result = "布\n你贏了\n不對我剛剛出石頭\n我贏了"
-        #     else:
-        #         result = "石頭\n你輸了"
-        #     messages = [{
-        #         "type":"text",
-        #         "text":result
-        #     }]
-        # elif userMessage == "石頭":
-        #     AI = random.randint(0,2)
-        #     if AI == 1:
-        #         result = "石頭\n平手"
-        #     elif AI == 0:
-        #         result = "剪刀\n你贏了\n不對我剛剛出布\n我贏了"
-        #     else:
-        #         result = "布\n你輸了"
-        #     messages = [{
-        #         "type":"text",
-        #         "text":result
-        #     }]
-        # elif userMessage == "布":
-        #     AI = random.randint(0,2)
-        #     if AI == 2:
-        #         result = "布\n平手"
-        #     elif AI == 1:
-        #         result = "石頭\n你贏了\n不對我剛剛出剪刀\n我贏了"
-        #     else:
-        #         result = "剪刀\n你輸了"
-        #     messages = [{
-        #         "type":"text",
-        #         "text":result
-        #     }]
+        if userMessage == "剪刀":
+            AI = random.randint(0,2)
+            if AI == 0:
+                result = "剪刀\n平手"
+            elif AI == 2:
+                result = "布\n你贏了\n不對我剛剛出石頭\n我贏了"
+            else:
+                result = "石頭\n你輸了"
+            messages = [{
+                "type":"text",
+                "text":result
+            }]
+        elif userMessage == "石頭":
+            AI = random.randint(0,2)
+            if AI == 1:
+                result = "石頭\n平手"
+            elif AI == 0:
+                result = "剪刀\n你贏了\n不對我剛剛出布\n我贏了"
+            else:
+                result = "布\n你輸了"
+            messages = [{
+                "type":"text",
+                "text":result
+            }]
+        elif userMessage == "布":
+            AI = random.randint(0,2)
+            if AI == 2:
+                result = "布\n平手"
+            elif AI == 1:
+                result = "石頭\n你贏了\n不對我剛剛出剪刀\n我贏了"
+            else:
+                result = "剪刀\n你輸了"
+            messages = [{
+                "type":"text",
+                "text":result
+            }]
         else:
             if userMessage == "...":#message.get("message").get("type") 
                 messages = [
