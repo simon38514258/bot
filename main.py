@@ -13,14 +13,14 @@ def index():
         userMessage = message.get("message").get("text")
         
         #if userMessage == "嗨":#message.get("message").get("type") 
-            messages = [
-                {
-                    #"text":userMessage
-                    "type": "sticker",
-                    "packageId": "11537",
-                    "stickerId": "52002742", 
-                }
-            ]
+        messages = [
+            {
+                #"text":userMessage
+                "type": "sticker",
+                "packageId": "11537",
+                "stickerId": "52002742", 
+            }
+        ]
         # else:
         #     message = [
         #     {
