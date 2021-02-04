@@ -35,7 +35,7 @@ def index():
                 "type":"text",
                 "text":result
             }]
-        elif userMessage == "嗨" or "在嗎" or "安安":
+        elif userMessage == "嗨" or userMessage == "在嗎" or userMessage == "安安":
             print(userMessage, 'elif的狀態')
             messages = [
                 {
