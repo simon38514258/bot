@@ -26,7 +26,13 @@ def index():
                 "type":"text",
                 "text":result
             }]
-
+            if (AI == "剪刀" and userMessage == "石頭") or (AI == "布"and userMessage == "剪刀") or (AI == "石頭"and userMessage == "布"):
+                if userMessage == "石頭":
+                   result = "不對我剛剛出布\n我贏了" 
+                elif userMessage == "剪刀":
+                    result = "不對我剛剛出石頭\n我贏了"
+                else:
+                    result = "不對我剛剛出剪刀\n我贏了"
 
         # if userMessage == "剪刀":
         #     AI = random.randint(0,2)
