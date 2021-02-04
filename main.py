@@ -1,5 +1,6 @@
 from flask import Flask,request
 from Modules.ReplyMessage import ReplyMessage
+import random
 
 app = Flask(__name__)
 
@@ -12,22 +13,57 @@ def index():
         replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
         
-        if userMessage == "嗨":#message.get("message").get("type") 
-            messages = [
-                {
-                    #"text":userMessage
-                    "type": "sticker",
-                    "packageId": "11537",
-                    "stickerId": "52002742", 
-                }
-            ]
-        else:
-            messages = [
-                {
-                    "type":"text",
-                    "text":"你給我閉嘴"
-                }
-            ]
+        #猜拳
+        if userMessage == "剪刀":
+            AI = random.randint(0,2)
+            if AI == 0:
+                print("剪刀")
+                result = "平手"
+            elif AI == 2:
+                print("布")
+                result = "你贏了"
+            else:
+                print("石頭")
+                result = "你輸了"
+        elif userMessage == "石頭":
+            AI = random.randint(0,2)
+            if AI == 1:
+                print("石頭")
+                result = "平手"
+            elif AI == 0:
+                print("剪刀")
+                result = "你贏了"
+            else:
+                print("布")
+                result = "你輸了"
+        elif userMessage == "布":
+            AI = random.randint(0,2)
+            if AI == 2:
+                print("布")
+                result = "平手"
+            elif AI == 1:
+                print("石頭")
+                result = "你贏了"
+            else:
+                print("剪刀")
+                result = "你輸了"
+        else
+            if userMessage == "嗨":#message.get("message").get("type") 
+                messages = [
+                    {
+                        #"text":userMessage
+                        "type": "sticker",
+                        "packageId": "11537",
+                        "stickerId": "52002742", 
+                    }
+                ]
+            else:
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"你給我閉嘴"
+                    }
+                ]
 
         ReplyMessage(replyToken,messages)
 
