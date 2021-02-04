@@ -19,13 +19,12 @@ def index():
             if str(AI) == userMessage:
                 result = f"{AI}\n平手"
             elif (AI == "剪刀" and userMessage == "石頭") or (AI == "布"and userMessage == "剪刀") or (AI == "石頭"and userMessage == "布"):
-                result = f"{AI}\n你贏了"
                 if userMessage == "石頭":
-                   result = "不對我剛剛出布\n我贏了" 
+                   result = f"{AI}\n你贏了\n不對我剛剛出布\n我贏了" 
                 elif userMessage == "剪刀":
-                    result = "不對我剛剛出石頭\n我贏了"
+                    result = f"{AI}\n你贏了\n不對我剛剛出石頭\n我贏了"
                 else:
-                    result = "不對我剛剛出剪刀\n我贏了"
+                    result = f"{AI}\n你贏了\n不對我剛剛出剪刀\n我贏了"
 
             else:
                 result= f"{AI}\n你輸了"
