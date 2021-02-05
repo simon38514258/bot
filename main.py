@@ -10,6 +10,37 @@ app = Flask(__name__)
 #HTTP請求方式
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
+    #星座運勢
+    astroDict = {
+        "牡羊座":"Aries",
+        "獅子座":"Leo",
+        "金牛座":"Taurus",
+        "射手座":"Sagittarius",
+        "雙子座":"Gemini",
+        "巨蟹座":"Cancer",
+        "處女座":"Virgo",
+        "天秤座":"Libra",
+        "天蠍座":"Scorpio",
+        "魔羯座":"Capricorn",
+        "水瓶座":"Aquarius",
+        "雙魚座":"Pisces"
+    }
+    astroImg = {
+        "金牛座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac02.jpg",
+        "牡羊座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac01.jpg",
+        "雙子座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac03.jpg",
+        "巨蟹座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac04.jpg",
+        "獅子座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac05.jpg",
+        "處女座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac06.jpg",
+        "天秤座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac07.jpg",
+        "天蠍座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac08.jpg",
+        "射手座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac09.jpg",
+        "摩羯座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac10.jpg",
+        "水瓶座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac11.jpg",
+        "雙魚座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac12.jpg"
+    }
+
     if request.method == 'POST':
         message = request.get_json().get('events')[0]
         print(message)
@@ -60,7 +91,7 @@ def index():
                     "stickerId": "52002742", 
                 }
             ]
-        elif userMessage == "變拳欸" or userMessage == "幹變拳" or userMessage == "你明明就出剪刀" or userMessage == "你明明就出石頭" or userMessage == "你明明就出布" or userMessage == "屁拉":
+        elif userMessage == "變拳欸" or userMessage == "你變拳" or userMessage == "幹變拳" or userMessage == "你明明就出剪刀" or userMessage == "你明明就出石頭" or userMessage == "你明明就出布" or userMessage == "屁拉":
             print(userMessage, 'else 變拳欸 的狀態')
             messages = [
                 {
@@ -246,9 +277,28 @@ def index():
             "type": "flex",
             "altText": "星座運勢",
             "contents": flexMessage
-
             }]
     #星座運勢
+        elif userMessage in astroDict:
+            url = f"https://www.daily-zodiac.com/zodiac/{astroDict[userMessage]}"
+            r = requests.get(url)
+            soup = BeautifulSoup(r.text,"html.parser")
+
+            #取出星座名稱，並利用replace將空白及換行清除
+            title = soup.select("h2")[0].text.replace(" ","").replace("\n","")
+            #取出日期，並利用replace將空白及換行清除
+            subtitle = soup.select("h3")[0].text.replace(" ","").replace("\n","")
+            #取出運勢，並做資料處理
+            content = soup.select("p.article")
+            #將bs4類型強制轉為srting
+            tmp = str(content[0])
+            #自切割，利用<botton做為切割基礎，並保留第一段
+            tmp = tmp.split("<button")[0]
+            #將str型態的html利用BeautifulSoup轉換成可操作的資料型態
+            soup = BeautifulSoup(tmp,"html.parser")
+            #利用beautifulsoup取出文字，並利用replace將空白及換行清除
+            content = soup.text.replace(" ","").replace("\n","")
+            print(title,subtitle,content)
 
     #成語接龍
         else:
