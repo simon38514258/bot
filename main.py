@@ -40,13 +40,13 @@ def index():
         "水瓶座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac11.jpg",
         "雙魚座":"https://www.csie.ntu.edu.tw/~b6506019/stuff/12stars/zodiac12.jpg"
     }
-
     if request.method == 'POST':
         message = request.get_json().get('events')[0]
         print(message)
         replyToken = message.get('replyToken')
         userMessage = message.get("message").get("text")
         print(userMessage)
+        userid = message.get("source").get("userId")
     #猜拳
         if userMessage == "剪刀" or userMessage == "石頭" or userMessage == "布" :
             AI = random.choice(["剪刀","石頭","布"])
