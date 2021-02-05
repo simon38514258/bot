@@ -61,7 +61,7 @@ def index():
                     result = f"{AI}\n你贏了\n不對我剛剛出剪刀\n我贏了"
 
             else:
-                result= f"{AI}\n你輸了"
+                result= f"{AI}\n你輸了\n你出{userMessage}的行為簡直是楊皓鈞"
             messages = [{
                 "type":"text",
                 "text":result
@@ -165,6 +165,13 @@ def index():
                 "contents": [
                 {
                     "type": "text",
+                    "text": subtitle,
+                    "color": "#000000FF",
+                    "align": "start",
+                    "contents": []
+                }
+                {
+                    "type": "text",
                     "text": content,
                     "size": "md",
                     "color": "#246CC0FF",
@@ -172,13 +179,7 @@ def index():
                     "wrap": True,
                     "contents": []
                 },
-                {
-                    "type": "text",
-                    "text": subtitle,
-                    "color": "#000000FF",
-                    "align": "start",
-                    "contents": []
-                }
+                
                 ]
             }
             }
