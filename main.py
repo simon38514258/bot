@@ -82,13 +82,15 @@ def index():
                     "text":"叫她閉嘴,然後逼他打"
                 }
             ]
+#星座運勢
+
 #成語接龍
         else:
             url = f'https://www.moedict.tw/pua/{userMessage}'
             r = requests.get(url)
             result = r.json().get("heteronyms")
             # print(result)
-            if result != None:
+            if result != None and "的意思"in result:
                 resultMessage = result[0].get("definitions")[0].get("def"))
                 messages = [
                     {
