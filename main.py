@@ -60,45 +60,49 @@ def index():
                     "stickerId": "52002742", 
                 }
             ]
-            if userMessage == "變拳欸" or userMessage == "幹變拳" or userMessage == "你明明就出剪刀" or userMessage == "你明明就出石頭" or userMessage == "你明明就出布" or userMessage == "屁拉":
-                print(userMessage, 'else 變拳欸 的狀態')
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"你才變拳你 全家都變拳"
-                    }
-                ]
-            elif userMessage == "打傳" or userMessage == "打傳啦":
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"叫楊"
-                    }
-                ]
-            elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢" or userMessage == "如果他說不呢" or userMessage == "如果他不要呢A" or userMessage == "他不要呢":
-                messages = [
-                    {
-                        "type":"text",
-                        "text":"叫她閉嘴,然後逼他打"
-                    }
-                ]
-#成語接龍
-            # else:
-            #     url = f'https://www.moedict.tw/pua/{userMessage}'
-            #     r = requests.get(url)
-            #     result = r.json().get("heteronyms")
-            #     # print(result)
-            #     if result != None:
-            #         print(result[0].get("definitions")[0].get("def"))
-            #     else:
-            #         print("查無資料")
-        else:
+        elif userMessage == "變拳欸" or userMessage == "幹變拳" or userMessage == "你明明就出剪刀" or userMessage == "你明明就出石頭" or userMessage == "你明明就出布" or userMessage == "屁拉":
+            print(userMessage, 'else 變拳欸 的狀態')
             messages = [
                 {
                     "type":"text",
-                    "text":"你給我閉嘴"
+                    "text":"你才變拳你 全家都變拳"
                 }
             ]
+        elif userMessage == "打傳" or userMessage == "打傳啦":
+            messages = [
+                {
+                    "type":"text",
+                    "text":"叫楊"
+                }
+            ]
+        elif userMessage == "如果他說不要呢?" or userMessage == "如果他說不要呢" or userMessage == "如果他說不呢" or userMessage == "如果他不要呢A" or userMessage == "他不要呢":
+            messages = [
+                {
+                    "type":"text",
+                    "text":"叫她閉嘴,然後逼他打"
+                }
+            ]
+#成語接龍
+        else:
+            url = f'https://www.moedict.tw/pua/{userMessage}'
+            r = requests.get(url)
+            result = r.json().get("heteronyms")
+            # print(result)
+            if result != None:
+                resultMessage = result[0].get("definitions")[0].get("def"))
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"你給我閉嘴"
+                    }
+                ]
+            else:
+                messages = [
+                    {
+                        "type":"text",
+                        "text":resultMessage
+                    }
+                ]
         
         ReplyMessage(replyToken,messages)
 
