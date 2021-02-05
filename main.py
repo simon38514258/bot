@@ -91,7 +91,7 @@ def index():
             result = r.json().get("heteronyms")
             # print(result)
             if result != None and "的意思"in result:
-                resultMessage = result[0].get("definitions")[0].get("def"))
+                resultMessage = result[0].get("definitions")[0].get("def")
                 messages = [
                     {
                         "type":"text",
