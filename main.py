@@ -242,7 +242,7 @@ def index():
                 }
                 }
 
-            messages[{
+            messages = [{
             "type": "flex",
             "altText": "星座運勢",
             "contents": flexMessage
