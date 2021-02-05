@@ -82,22 +82,199 @@ def index():
                     "text":"叫她閉嘴,然後逼他打"
                 }
             ]
+        elif userMessage == "測試":
+
+            flexMessage = {
+                {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                        "size": "full",
+                        "aspectRatio": "20:13",
+                        "aspectMode": "cover",
+                        "action": {
+                        "type": "uri",
+                        "label": "Line",
+                        "uri": "https://linecorp.com/"
+                        }
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                        {
+                            "type": "text",
+                            "text": "Brown Cafe",
+                            "weight": "bold",
+                            "size": "xl",
+                            "contents": []
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "margin": "md",
+                            "contents": [
+                            {
+                                "type": "icon",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                                "size": "sm"
+                            },
+                            {
+                                "type": "icon",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                                "size": "sm"
+                            },
+                            {
+                                "type": "icon",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                                "size": "sm"
+                            },
+                            {
+                                "type": "icon",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                                "size": "sm"
+                            },
+                            {
+                                "type": "icon",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png",
+                                "size": "sm"
+                            },
+                            {
+                                "type": "text",
+                                "text": "4.0",
+                                "size": "sm",
+                                "color": "#999999",
+                                "flex": 0,
+                                "margin": "md",
+                                "contents": []
+                            }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "spacing": "sm",
+                            "margin": "lg",
+                            "contents": [
+                            {
+                                "type": "box",
+                                "layout": "baseline",
+                                "spacing": "sm",
+                                "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "Place",
+                                    "size": "sm",
+                                    "color": "#AAAAAA",
+                                    "flex": 1,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "flex": 5,
+                                    "wrap": True,
+                                    "contents": []
+                                }
+                                ]
+                            },
+                            {
+                                "type": "box",
+                                "layout": "baseline",
+                                "spacing": "sm",
+                                "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "Time",
+                                    "size": "sm",
+                                    "color": "#AAAAAA",
+                                    "flex": 1,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "10:00 - 23:00",
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "flex": 5,
+                                    "wrap": True,
+                                    "contents": []
+                                }
+                                ]
+                            }
+                            ]
+                        }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 0,
+                        "spacing": "sm",
+                        "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "uri",
+                            "label": "CALL",
+                            "uri": "https://linecorp.com"
+                            },
+                            "height": "sm",
+                            "style": "link"
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "uri",
+                            "label": "WEBSITE",
+                            "uri": "https://linecorp.com"
+                            },
+                            "height": "sm",
+                            "style": "link"
+                        },
+                        {
+                            "type": "spacer",
+                            "size": "sm"
+                        }
+                        ]
+                    }
+                    }
+            }
+
+            messages[{
+            "type": "flex",
+            "altText": "星座運勢",
+            "contents": flexMessage
+
+            }]
 #星座運勢
 
 #成語接龍
         else:
-            url = f'https://www.moedict.tw/pua/{userMessage}'
-            r = requests.get(url)
-            result = r.json().get("heteronyms")
             # print(result)
-            if result != None and "的意思" in userMessage.split("的意思"):
-                resultMessage = result[0][0].get("definitions")[0][0].get("def")
-                messages = [
-                    {
-                        "type":"text",
-                        "text":resultMessage
-                    }
-                ]
+            if "的意思" in userMessage:
+                userMessage = userMessage.split("的意思")
+                url = f'https://www.moedict.tw/pua/{userMessage[0]}'
+                r = requests.get(url)
+                result = r.json().get("heteronyms")
+                if result != None:
+                    resultMessage = result[0].get("definitions")[0].get("def")
+                    messages = [
+                        {
+                            "type":"text",
+                            "text":resultMessage
+                        }
+                    ]
+                else:
+                    messages = [
+                        {
+                            "type":"text",
+                            "text":"查無資料"
+                        }
+                    ]
             else:
                 messages = [
                     {
