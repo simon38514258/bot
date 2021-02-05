@@ -79,6 +79,21 @@ def index():
                     "text":"怎麼了"
                 }
             ]
+        elif userMessage == "誰是智障":
+            if userid == "U397a28b03d77877aa213ad507c5c7d6f":
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"除了你以外，在座的各位\n都是智障"
+                    }
+                ]
+            else: 
+                messages = [
+                    {
+                        "type":"text",
+                        "text":"還問你就是那個智障"
+                    }
+                ]
 #print(userMessage, 'else的狀態')
 #message.get("message").get("type"==sticker) 
         elif userMessage == "..." or userMessage == "沒事啦":
@@ -169,7 +184,7 @@ def index():
                     "color": "#000000FF",
                     "align": "start",
                     "contents": []
-                }
+                },
                 {
                     "type": "text",
                     "text": content,
@@ -178,7 +193,7 @@ def index():
                     "align": "center",
                     "wrap": True,
                     "contents": []
-                },
+                }
                 
                 ]
             }
