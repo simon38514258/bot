@@ -93,14 +93,14 @@ def index():
                 messages = [
                     {
                         "type":"text",
-                        "text":"你給我閉嘴"
+                        "text":resultMessage
                     }
                 ]
             else:
                 messages = [
                     {
                         "type":"text",
-                        "text":resultMessage
+                        "text":"你給我閉嘴"
                     }
                 ]
         
