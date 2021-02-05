@@ -90,7 +90,7 @@ def index():
             r = requests.get(url)
             result = r.json().get("heteronyms")
             # print(result)
-            if result != None and "的意思"in result:
+            if result != None and "的意思" in userMessage.split("的意思"):
                 resultMessage = result[0].get("definitions")[0].get("def")
                 messages = [
                     {
