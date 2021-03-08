@@ -204,7 +204,7 @@ def index():
             "contents": flexMessage
             }]
 
-    #成語接龍
+    #成語
         else:
             # print(result)
             if "的意思" in userMessage:
