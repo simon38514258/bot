@@ -1,5 +1,5 @@
 from flask import Flask,request
-from Modules.ReplyMessage import ReplyMessage
+from ReplyMessage import ReplyMessage
 import random
 import requests
 from bs4 import BeautifulSoup
@@ -242,45 +242,13 @@ def index():
     else:
         return 'succeed'
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1',port=5000,debug=True, use_reloader=False)
 
+app = Flask(__name__)
 
-    app = Flask(__name__)
+@app.route("/")
+def server():
+    return "<h1>Hello!</h1>"
 
-
-@app.route('/')
-def home():
-    return 'Home Page Route'
-
-
-@app.route('/about')
-def about():
-    return 'About Page Route'
-
-
-@app.route('/portfolio')
-def portfolio():
-    return 'Portfolio Page Route'
-
-
-@app.route('/contact')
-def contact():
-    return 'Contact Page Route'
-
-
-@app.route('/api')
-def api():
-    with open('data.json', mode='r') as my_file:
-        text = my_file.read()
-        return text
- 
- 
-class handler(BaseHTTPRequestHandler):
- 
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type','text/plain')
-        self.end_headers()
-        self.wfile.write('Hello, world!'.encode('utf-8'))
-        return
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
