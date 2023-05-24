@@ -3,8 +3,7 @@ from Modules.ReplyMessage import ReplyMessage
 import random
 import requests
 from bs4 import BeautifulSoup
-
-
+from http.server import BaseHTTPRequestHandler
 app = Flask(__name__)
 
 #HTTP請求方式
@@ -246,3 +245,13 @@ def index():
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True, use_reloader=False)
 
+
+ 
+class handler(BaseHTTPRequestHandler):
+ 
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type','text/plain')
+        self.end_headers()
+        self.wfile.write('Hello, world!'.encode('utf-8'))
+        return
